@@ -6,20 +6,20 @@ public class duplicateThing {
 
 		readDplWords newObj1 = new readDplWords();
 
-		newObj1.findDuplicate("hello shafeeq shafeeq lives lives in manchesterUK");
+		newObj1.findDuplicate(" hello shafeeq hello shafeeq shafeeq lives in lives in manchesterUK in manchesterUK");
 	}
 
 }
 
 class readDplWords {
-	String mostDuplicate, mostDuplicate2 = "";
-    
+	String mostDuplicate, mostDuplicate2, mostDuplicate3 = "";
+
 	public void findDuplicate(String msg) {
 
 		int i = 0;
-		int count = 0;
+		
 		String current = "";
-		String duplicate = "";
+		
 		int newPosition = 0;
 		String newWord = "";
 		String newMsg = "";
@@ -32,21 +32,18 @@ class readDplWords {
 
 				// System.out.println(newWord +"..."+ newWord.length() + " " + current +
 				// current.length());
-				
-				
+
 				if (newWord.equals(current)) {
-					if (newWord.equals(mostDuplicate) | newWord.equals(mostDuplicate2)) {
+					if (newWord.equals(mostDuplicate) || newWord.equals(mostDuplicate2) || newWord.equals(mostDuplicate3)) {
 						newPosition = i;
-						continue;	
+						continue;
 					}
 					find(msg, newWord);
 					newMsg += newWord;
 				}
-				
-				
-				
+
 				newPosition = i;
-				
+
 			}
 
 		}
@@ -60,7 +57,8 @@ class readDplWords {
 		int i, found;
 
 		i = found = 0;
-
+		mostDuplicate2 = mostDuplicate;
+		mostDuplicate3 = mostDuplicate2;
 		for (; i < msg.length(); i++) {
 
 			if (msg.substring(i, i + 1).equals(lookfor.substring(0, 1))) {
@@ -73,7 +71,6 @@ class readDplWords {
 					}
 					if (found > 1) {
 						mostDuplicate = lookfor;
-						mostDuplicate2 = mostDuplicate;
 						
 					}
 
@@ -82,12 +79,12 @@ class readDplWords {
 
 		}
 
-		// System.out.println("found " + lookfor + " "+ found + " times" );
+		 System.out.println("found " + lookfor + " "+ found + " times" );
 
 	}
-	
+
 	public void replaceWord(String msg) {
-		
+
 	}
 
 }
